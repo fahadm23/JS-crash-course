@@ -153,4 +153,64 @@ function addNums(num1 = 1, num2 = 1) {
 
 //console.log(addNums(5, 5));
 
-// Arrow Functions
+// OOP Constructor function
+function Person (firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date(dob); // Using date object
+    this.getBirthYear = function() {
+        return this.dob.getFullYear();
+    }
+     this.getFullName = function() {
+        return `${this.firstName} ${this.lastName}`; //template literal ${}
+     }
+}
+
+//Prototypes
+Person.prototype.getBirthYear = function() {
+    return this.dob.getFullYear();
+}
+
+Person.prototype.getFullName = function() {
+    return `${this.firstName} ${this.lastName}`;
+}
+
+//Instantiate object
+const person1 = new Person('John', 'Doe', '4-3-1980');
+const person2 = new Person('Mary', 'Jane', '1-4-1990');
+//console.log(person1.getFullName());
+
+
+
+//  ES6 2015 Classes
+class Person {
+    constructor(firstName, lastName, dob) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = new Date(dob);
+    }
+    getBirthYear() {
+        return this.dob.getFullYear();
+    }
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`
+    }
+}
+
+console.log(person1.getFullName);
+
+// DOM
+document.getElementById
+document.querySelector // selects one element by class, label, etc. even if more than one exist
+document.querySelectorAll // selects all by the same name
+document.getElementsByClassName // selects from only classes
+document.getElementsByTagName // selects from tag names (li)
+
+
+// Events
+addEventListener('click', (e) =>  {
+    e.preventDefault();
+})
+// Use event listeners to dynamically change webpage with inputs (clicks, hovers, etc.)
+// (e) means takes event parameter e.g. function onSubmit(e) {}
+// If there is a defaul action use e.preventDefault() to override
